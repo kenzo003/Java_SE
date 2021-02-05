@@ -1,7 +1,7 @@
 import java.math.BigInteger;
 
 public class Factorial {
-    public BigInteger calculate(int value) {
+    public static BigInteger calculate(int value) {
 
         BigInteger result = new BigInteger("1");
 
