@@ -1,6 +1,9 @@
+import com.hortsmann.chapter2.Point;
+
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+
 import static java.lang.Math.*;
 
 public class Main {
@@ -12,6 +15,7 @@ public class Main {
         System.out.println("\t2.\tГлава 1. Задание 10.");
         System.out.println("\t3.\tГлава 1. Задание 14.");
         System.out.println("\t4.\tГлава 1. Задание 2.");
+        System.out.println("\t5.\t\tГлава 2. Задание 6.");
 
         while (true) {
             System.out.print("\nВаш выбор: ");
@@ -35,7 +39,7 @@ public class Main {
 
                     }
                     System.out.println("\t\tРезультат: " + result);
-                break;
+                    break;
                 case 3:
                     System.out.println("\n1.14\tНапишите программу, вводящую двумерный массив целочисленных значений " +
                             "и определяющую, содержится ли в нем магический квадрат \n(т.е. одинаковая " +
@@ -59,7 +63,6 @@ public class Main {
                     }
 
                     System.out.println("\t\tЯвляется магическим квадратом: " + magicSquare.validate(magicArray));
-
                     break;
 
                 case 4:
@@ -74,6 +77,37 @@ public class Main {
                     int res = abs(angle % 360);
                     System.out.println("\t\tРезультат (%): " + res);
                     System.out.println("\t\tРезультат (floorMod): " + floorMod(angle, 360));
+                    break;
+
+                case 5:
+                    System.out.println("\n2.6\tПовторите предыдущее упражнение, но на этот раз сделайте методы trans" +
+                            "late() и scale() модифицирующими\n\tУсловие задания 5:\n Реализуйте неизменяемый класс Point , описывающий точку на плоскости. " +
+                            "Предоставьте его конструктор, чтобы задать конкретную точку;\n конструктор " +
+                            "без аргументов, чтобы задать точку в начале координат; а также методы getX(), " +
+                            "getY(), translate() и scale().\n В частности, метод translate () должен пере" +
+                            "мещать точку на определенное расстояние в направлении координат х и у,\n а " +
+                            "метод scale() — изменять масштаб по обеим координатам на заданный коэф" +
+                            "фициент.\n Реализуйте эти методы таким образом, чтобы они возвращали новые " +
+                            "точки в качестве результата. \n Например, в следующей строке кода:" +
+                            "Point р = new Point(3, 4).translate(1, 3).scale(0.5); " +
+                            "в переменной р должна быть установлена точка с координатами (2, 3, 5) .");
+                    Scanner scan = new Scanner(System.in);
+                    System.out.print("\nВведите координаты x и y (через пробел): ");
+
+                    String temp = scan.nextLine();
+                    double[] arrPoint = Arrays.stream(temp.replace(',', '.').split(" ")).mapToDouble(Double::parseDouble).toArray();
+                    Point point = new Point(arrPoint[0], arrPoint[1]);
+
+                    System.out.print("Введите координаты x и y для перемещения точки координат (через пробел): ");
+                    temp = scan.nextLine();
+                    arrPoint = Arrays.stream(temp.replace(',', '.').split(" ".replace(',', '.'))).mapToDouble(Double::parseDouble).toArray();
+                    point.translate(arrPoint[0], arrPoint[1]);
+
+                    System.out.print("Введите коэффициент изменения масштаба: ");
+                    double scale = scan.nextDouble();
+                    point.scale(scale);
+
+                    System.out.println("\t\tРезультат: (" + point.getX() + "; " + point.getY() + ")");
                     break;
             }
         }
