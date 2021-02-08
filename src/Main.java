@@ -1,7 +1,7 @@
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+import static java.lang.Math.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,6 +11,7 @@ public class Main {
         System.out.println("\n\t1.\tГлава 1. Задание 6.");
         System.out.println("\t2.\tГлава 1. Задание 10.");
         System.out.println("\t3.\tГлава 1. Задание 14.");
+        System.out.println("\t4.\tГлава 1. Задание 2.");
 
         while (true) {
             System.out.print("\nВаш выбор: ");
@@ -34,7 +35,7 @@ public class Main {
 
                     }
                     System.out.println("\t\tРезультат: " + result);
-                    break;
+                break;
                 case 3:
                     System.out.println("\n1.14\tНапишите программу, вводящую двумерный массив целочисленных значений " +
                             "и определяющую, содержится ли в нем магический квадрат \n(т.е. одинаковая " +
@@ -59,6 +60,20 @@ public class Main {
 
                     System.out.println("\t\tЯвляется магическим квадратом: " + magicSquare.validate(magicArray));
 
+                    break;
+
+                case 4:
+                    System.out.println("\n1.2\tНапишите программу, вводящую целочисленное (как положительное, так и \n" +
+                            "отрицательное) значение угла и нормализующую его в пределах от 0 до 359 \n" +
+                            "градусов. Попробуйте сделать это сначала с помощью операции %, а затем ме" +
+                            "тода floorMod().");
+                    int angle = 0;
+
+                    System.out.print("\t\tВведите значение угла: ");
+                    angle = scanner.nextInt();
+                    int res = abs(angle % 360);
+                    System.out.println("\t\tРезультат (%): " + res);
+                    System.out.println("\t\tРезультат (floorMod): " + floorMod(angle, 360));
                     break;
             }
         }
